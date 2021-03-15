@@ -70,6 +70,7 @@ const avatarSvgs = {
  *
  */
 async function setupCamera() {
+
   if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
     throw new Error(
         'Browser API navigator.mediaDevices.getUserMedia not available');
@@ -97,7 +98,10 @@ async function setupCamera() {
 }
 
 async function loadVideo() {
-  const video = await setupCamera();
+  //const video = await setupCamera();
+  const video = document.getElementById('video');
+  video.width = videoWidth;
+  video.height = videoHeight;
   video.play();
 
   return video;
